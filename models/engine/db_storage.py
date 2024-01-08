@@ -86,7 +86,7 @@ class DBStorage:
                 if key.split(".")[1] == id:
                     return value
         return None
-    
+
     def count(self, cls=None):
         """
         count the number of objects in storage
