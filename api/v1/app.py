@@ -15,10 +15,12 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 app.url_map.strict_slashes = False
 
+
 @app.teardown_appcontext
 def teardown_engine(exception):
     """Close storage"""
     storage.close()
+
 
 # task 5
 # error handler for 404 Not Found
@@ -28,9 +30,11 @@ def not_found(error):
     response = {'error': 'Not found'}
     return jsonify(response), 404
 
+
 # Task 12
 # Enabling CORS and allow request from the origin:
 CORS(app, resources={r'/api/v1/*': {'origins': '0.0.0.0.'}})
+
 
 if __name__ == "__main__":
     host = os.getenv('HBNB_API_HOST', '0.0.0.0')
