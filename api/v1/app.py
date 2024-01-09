@@ -35,6 +35,7 @@ def not_found(error):
     response = {'error': 'Not found'}
     return jsonify(response), 404
 
+
 @app.errorhandler(400)
 def error_400(error):
     """Handling the 400 HTTP error code"""
